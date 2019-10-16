@@ -64,7 +64,7 @@ public class DialogDataVolume extends DialogFragment {
             public void onClick(View v) {
 
                 //set value --->
-                ((Account)getActivity()).pickDataVolume.setText(dataVolume + " MB");
+                ((Account)getActivity()).pickDataVolume.setText(dataVolume + "");
                 getDialog().dismiss();
 
 

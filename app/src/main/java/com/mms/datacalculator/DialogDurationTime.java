@@ -19,7 +19,6 @@ public class DialogDurationTime extends DialogFragment {
     private Button cancel;
 
     private NumberPicker numberPickerDataVolume;
-    private int dataVolume;
     private int days;
 
     @Nullable

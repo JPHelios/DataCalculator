@@ -62,8 +62,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadData(){
-        String success = "Data loaded and calculated";
 
+        Reload reload = new Reload();
+        String success = "Data loaded and calculated";
         Toast.makeText(getApplicationContext(),success,Toast.LENGTH_LONG).show();
     }
 

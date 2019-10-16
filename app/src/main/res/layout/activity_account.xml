@@ -96,7 +96,7 @@
                                 android:layout_marginEnd="12dp"
                                 android:clickable="true"
                                 android:layout_centerVertical="true"
-                                android:hint="500 MB"
+                                android:text="500"
                                 android:textAlignment="center"
                                 android:textSize="15sp" />
 
@@ -192,14 +192,23 @@
                             android:layout_height="match_parent">
 
                             <Button
+                                android:id="@+id/backButton"
+                                android:layout_width="150dp"
+                                android:layout_height="50dp"
+                                android:text="BACK"
+                                android:textStyle="bold"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="8dp"/>
+
+                            <Button
                                 android:id="@+id/saveButton"
                                 android:layout_width="150dp"
                                 android:layout_height="50dp"
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentEnd="true"
-                                android:layout_marginTop="-1dp"
                                 android:layout_marginEnd="8dp"
-                                android:text="Save"
+                                android:text="SAVE"
                                 android:textColor="@android:color/black"
                                 android:textStyle="bold" />
                         </RelativeLayout>
