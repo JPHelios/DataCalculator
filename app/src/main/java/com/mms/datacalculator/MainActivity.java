@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         //Round
         todaysDataVolume = (float)(Math.round(100.0 * todaysDataVolume) / 100.0);
 
+
         //NetworkStatsManager netStatManager = context.getSystemSer(NetworkStatsManager.class);
 
 
