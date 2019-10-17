@@ -5,6 +5,7 @@ import androidx.fragment.app.DialogFragment;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -47,7 +48,7 @@ public class Account extends AppCompatActivity implements DatePickerDialog.OnDat
         backButton = findViewById(R.id.backButton);
 
         //Open shared Preference file
-        calculationData = getSharedPreferences("CalculationData", MODE_PRIVATE);
+        calculationData = getSharedPreferences("CalculationData", Context.MODE_PRIVATE);
 
         //get data from shared preferences
         pickDataVolume.setText(String.valueOf(calculationData.getInt("DataVolume", 500)));
@@ -95,7 +96,7 @@ public class Account extends AppCompatActivity implements DatePickerDialog.OnDat
                 int days = Integer.parseInt((String) durationTime.getText());
 
                 //open file
-                calculationData = getSharedPreferences("CalculationData", MODE_PRIVATE);
+                calculationData = getSharedPreferences("CalculationData", Context.MODE_PRIVATE);
                 //open Editor
                 SharedPreferences.Editor editor = calculationData.edit();
                 //Text schreiben

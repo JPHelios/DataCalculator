@@ -1,13 +1,20 @@
 package com.mms.datacalculator;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.usage.NetworkStatsManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,11 +68,43 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void loadData(){
 
-        Reload reload = new Reload();
+        Calendar calendar = Calendar.getInstance();
+        int days, dataVolume;
+        long date;
+        float dataPerDay, todaysDataVolume;
+
         String success = "Data loaded and calculated";
-        Toast.makeText(getApplicationContext(),success,Toast.LENGTH_LONG).show();
+
+        //load sharedPreferences data
+        SharedPreferences calculationData = getSharedPreferences("CalculationData", Context.MODE_PRIVATE);
+        days = calculationData.getInt("DurationTime", 28);
+        dataVolume = calculationData.getInt("DataVolume", 500);
+
+        date = calculationData.getLong("StartDate", calendar.getTimeInMillis());
+
+        //Data per Day Calculation
+        dataPerDay = (float) dataVolume / days;
+
+        //DayNumber since start of calculation
+        long millis = date - calendar.getTimeInMillis();
+        int hours = (int) (millis/(1000*60*60));         //int mins = (int) (millis%(1000*60*60));
+        float dayNumber = ((float) hours/24.0F * (-1) + 1);
+        todaysDataVolume = dataPerDay * dayNumber;
+        //Round
+        todaysDataVolume = (float)(Math.round(100.0 * todaysDataVolume) / 100.0);
+
+        NetworkStatsManager netStatManager = getSystemService(NetworkStatsManager.class);
+
+
+
+
+
+
+        //Toast for a successfull task
+        Toast.makeText(getApplicationContext(), String.valueOf(todaysDataVolume + " MB"/* success*/),Toast.LENGTH_LONG).show();
     }
 
 
