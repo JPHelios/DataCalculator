@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple"
-    tools:context=".MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
     <TextView
         android:id="@+id/TextView"
@@ -14,7 +14,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
-        android:text="Data Monitoring"
+        android:text="@string/data_monitoring_headline_text"
         android:textColor="#FFF"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextView"/>
+        app:layout_constraintTop_toBottomOf="@+id/TextView"
+        android:contentDescription="@string/icon_content_description" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,20 +50,22 @@
         <LinearLayout
             android:layout_marginTop="64dp"
             android:paddingBottom="24dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="16dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="16dp"
             android:layout_weight="3"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:baselineAligned="false">
 
             <LinearLayout
-                android:id="@+id/monitor"
+                android:id="@+id/monitorLayout"
                 android:clickable="true"
                 android:layout_weight="1"
                 android:orientation="horizontal"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                tools:ignore="NestedWeights">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -70,21 +73,23 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/bg_purple"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp">
+                    android:layout_height="120dp"
+                    tools:ignore="UselessParent">
 
                     <ImageView
                         android:layout_marginTop="12dp"
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="12dp"
                         android:layout_marginBottom="18dp"
                         android:src="@drawable/film"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/monitor_data_description_layout" />
 
                     <TextView
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="12dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Monitor \nData"
+                        android:text="@string/monitor_data_layout_text"
                         android:textColor="#FFF"
                         android:textSize="18sp"/>
 
@@ -93,7 +98,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/setData"
+                android:id="@+id/setDataLayout"
                 android:clickable="true"
                 android:orientation="vertical"
                 android:layout_weight="1"
@@ -106,21 +111,23 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/bg_navy"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp">
+                    android:layout_height="120dp"
+                    tools:ignore="UselessParent">
 
                     <ImageView
                         android:layout_marginTop="12dp"
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="12dp"
                         android:layout_marginBottom="18dp"
                         android:src="@drawable/pluspro"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/account_settings_image_description" />
 
                     <TextView
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="12dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Account \nSettings"
+                        android:text="@string/account_settings_layout_text"
                         android:textColor="#FFF"
                         android:textSize="18sp"/>
 
@@ -129,7 +136,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/calcData"
+                android:id="@+id/calcDataLayout"
                 android:clickable="true"
                 android:orientation="vertical"
                 android:layout_weight="1"
@@ -142,23 +149,26 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/bg_blue1"
                     android:layout_width="match_parent"
-                    android:layout_height="120dp">
+                    android:layout_height="120dp"
+                    tools:ignore="UselessParent">
 
                     <ImageView
                         android:layout_marginTop="12dp"
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="12dp"
                         android:layout_marginBottom="18dp"
                         android:src="@drawable/download"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/load_data_image_description" />
 
                     <TextView
-                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="12dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Load \nData"
                         android:textColor="#FFF"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp"
+                        tools:ignore="HardcodedText" />
 
                 </LinearLayout>
 

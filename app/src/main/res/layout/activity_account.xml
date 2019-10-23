@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple"
-    tools:context=".Account">
+    tools:context=".ui.activity.AccountActivity">
 
     <TextView
         android:id="@+id/TextView"
@@ -33,7 +33,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/TextView"
+        android:contentDescription="@string/icon_content_description" />
 
 
 
@@ -49,20 +50,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="350dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginEnd="0dp"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
@@ -80,14 +72,16 @@
                                 android:layout_marginTop="24dp"
                                 android:layout_marginEnd="8dp"
                                 android:layout_centerVertical="true"
-                                android:text="Data volume:"
+                                android:text="@string/data_volume_text_view"
+                                android:textColor="@android:color/black"
                                 android:textAlignment="center"
                                 android:textSize="20sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                tools:ignore="RelativeOverlap" />
 
 
                             <TextView
-                                android:id="@+id/pickDataVolume"
+                                android:id="@+id/pickDataVolumeDialogOpener"
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
@@ -96,7 +90,9 @@
                                 android:layout_marginEnd="12dp"
                                 android:clickable="true"
                                 android:layout_centerVertical="true"
-                                android:text="500"
+                                android:text="@string/data_volume_standard_value"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold"
                                 android:textAlignment="center"
                                 android:textSize="15sp" />
 
@@ -121,16 +117,20 @@
                                 android:layout_marginEnd="8dp"
                                 android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
-                                android:text="Duration in days:"
+                                android:text="@string/duration_in_days_text_view"
+                                android:textColor="@android:color/black"
                                 android:textSize="20sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                tools:ignore="RelativeOverlap" />
 
                             <TextView
-                                android:id="@+id/durationTime"
+                                android:id="@+id/durationTimeDialogOpener"
                                 android:layout_width="150dp"
-                                android:text="28"
+                                android:text="@string/duration_time_default_value"
                                 android:textAlignment="center"
                                 android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginTop="24dp"
@@ -154,31 +154,34 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="24dp"
-                                android:layout_marginEnd="8dp"
                                 android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
-                                android:text="Start date:"
-                                android:textSize="20sp"
-                                android:textStyle="bold"/>
-
-                            <TextView
-                                android:id="@+id/startDate"
-                                android:layout_width="150dp"
-                                android:layout_height="wrap_content"
-                                android:clickable="true"
-                                android:hint="date"
-                                android:textAlignment="center"
-                                android:textSize="15sp"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginTop="24dp"
                                 android:layout_marginEnd="8dp"
+                                android:text="@string/start_date_text_view"
+                                android:textColor="@android:color/black"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                tools:ignore="RelativeOverlap" />
+
+                            <TextView
+                                android:id="@+id/startDateDialogOpener"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"/>
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="24dp"
+                                android:layout_marginEnd="8dp"
+                                android:clickable="true"
+                                android:hint="@string/date_hint"
+                                android:textAlignment="center"
+                                android:textSize="15sp"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold" />
 
                         </RelativeLayout>
-
 
 
                     </LinearLayout>
@@ -195,11 +198,13 @@
                                 android:id="@+id/backButton"
                                 android:layout_width="150dp"
                                 android:layout_height="50dp"
-                                android:text="BACK"
-                                android:textStyle="bold"
+                                android:text="@string/back_button_text"
+                                android:textColor="@android:color/white"
                                 android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
-                                android:layout_marginStart="8dp"/>
+                                android:layout_marginStart="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:background="@drawable/custom_button"/>
 
                             <Button
                                 android:id="@+id/saveButton"
@@ -208,17 +213,13 @@
                                 android:layout_alignParentTop="true"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginEnd="8dp"
-                                android:text="SAVE"
-                                android:textColor="@android:color/black"
-                                android:textStyle="bold" />
+                                android:layout_marginBottom="8dp"
+                                android:text="@string/save_text_button"
+                                android:textColor="@android:color/white"
+                                android:background="@drawable/custom_button"/>
                         </RelativeLayout>
-
                     </LinearLayout>
-
                 </LinearLayout>
-
-            </ScrollView>
-
         </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
